@@ -1,0 +1,13 @@
+name = "HERE"
+uuid = "15198bbc-029f-4137-ba70-9b0358eca0d4"
+authors = ["Anmol Pahwa"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
