@@ -3,6 +3,13 @@ uuid = "15198bbc-029f-4137-ba70-9b0358eca0d4"
 authors = ["Anmol Pahwa"]
 version = "0.1.0"
 
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+
 [compat]
 julia = "1"
 
