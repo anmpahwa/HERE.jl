@@ -26,6 +26,10 @@ end
     df = weather(;apikey=testkey, info="weather forecast", loc=(name = "Jaipur",))
     @test !isempty(df)
 
+    df = weather(;apikey=testkey, info="weather alert", loc=(name = "Jaipur",))
+    display(df)
+    @test !isempty(df)
+
     df = weather(;apikey=testkey, info="astronomy forecast", loc=(name = "Jaipur",))
     @test !isempty(df)
 end
