@@ -17,13 +17,16 @@ For more information visit: https://developer.here.com/documentation/traffic/dev
 Example request: https://developer.here.com/documentation/traffic/dev_guide/topics_v6.1/example-flow-bounding-box.html
 """
 function flow(;apikey, bbox, s=1.0, m=1/60)
+    # Create request url
     baseurl = "https://traffic.ls.hereapi.com"
     path = "traffic/6.2"
     resource = "flow.xml"
     url = "$baseurl/$path/$resource?apiKey=$apikey&bbox=$bbox&responseattributes=shape"
+
+    # Fetch network
     df = network(apikey=apikey, bbox=bbox)
 
-    # Fetching real-time speeds
+    # Fetch real-time speeds
     t = 1
     while t ≤ m * 60
         Tₒ = Dates.format(now(), "HH:MM:SS:sss")
@@ -43,5 +46,6 @@ function flow(;apikey, bbox, s=1.0, m=1/60)
         t += s
         sleep(s)
     end
-    display(df)
+
+    return df
 end
