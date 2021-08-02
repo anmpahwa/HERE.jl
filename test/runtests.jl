@@ -5,7 +5,7 @@ using Test
 #=
 function loadkey()
     if "key" in keys(ENV)
-        return ENV[key]
+        return ENV["key"]
     else
         open("test\\keys") do f
             return strip(readline(f))
@@ -13,7 +13,7 @@ function loadkey()
     end
 end
 =#
-testkey = ENV[key]
+testkey = ENV["key"]
 @testset "dummy test" begin
     @test typeof(testkey) == String
 end
