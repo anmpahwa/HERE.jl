@@ -2,4 +2,4 @@
 *.jl.cov
 *.jl.mem
 /Manifest.toml
-test/keys.jl
+test/keys
