@@ -30,7 +30,7 @@ function flow(;apikey, bbox, s=1.0, m=1/60)
     t = 1
     while t ≤ m * 60
         Tₒ = Dates.format(now(), "HH:MM:SS:sss")
-        df[!, "RTS @$Tₒ"] = zeros(nrow(df))
+        df[!, "rts @$Tₒ"] = zeros(nrow(df))
         r = HTTP.request(:GET, url)
         f = parsexml(String(r.body))
         rootNode = root(f)
@@ -39,7 +39,7 @@ function flow(;apikey, bbox, s=1.0, m=1/60)
             if nodename(node) == "FI"
                 child = lastelement(node)
                 v = parse(Float64, child["SU"])
-                df[k, "RTS @$Tₒ"] = v
+                df[k, "rts @$Tₒ"] = v
                 k += 1
             end
         end

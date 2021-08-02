@@ -25,25 +25,25 @@ function network(;apikey, bbox)
     rootNode = root(f)
     
     # Build network
-    df = DataFrame(LID = Int64[], NAME = String[], LENGTH = Float64[], FFS = Float64[], SHAPE = String[])
+    df = DataFrame(lid = Int64[], name = String[], length = Float64[], ffs = Float64[], shape = String[])
     for node in iterate(rootNode)
         if nodename(node) == "FI"
             shape = ""
             for child in eachelement(node)
                 # Fetch name and length
                 if child == firstelement(node)
-                    push!(df[!, :LID], length(df[!, :LID]) + 1)
-                    push!(df[!, :NAME], child["DE"])
-                    push!(df[!, :LENGTH], parse(Float64, child["LE"]))
+                    push!(df[!, :lid], length(df[!, :lid]) + 1)
+                    push!(df[!, :name], child["DE"])
+                    push!(df[!, :length], parse(Float64, child["LE"]))
                 # Fetch free flow speed 
                 elseif child == lastelement(node)
-                    push!(df[!, :FFS], parse(Float64, child["FF"]))
+                    push!(df[!, :ffs], parse(Float64, child["FF"]))
                 # Fetch link shape (Note: Link shape is of the same format as the bbox)
                 else
                     shape *= replace(nodecontent(child), " " => ";")
                 end
             end
-            push!(df[!, :SHAPE], shape)
+            push!(df[!, :shape], shape)
         end
     end
 
