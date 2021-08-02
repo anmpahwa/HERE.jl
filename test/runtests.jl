@@ -13,8 +13,12 @@ function loadkey()
     end
 end
 =#
+testkey = ENV["fk"]
+@testset "dummy test 1" begin
+    @test typeof(testkey) == String
+end
 testkey = ENV["key"]
-@testset "dummy test" begin
+@testset "dummy test 2" begin
     @test typeof(testkey) == String
 end
 #=@testset "Traffic API" begin
