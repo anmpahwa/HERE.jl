@@ -41,7 +41,7 @@ function weather(;apikey, info, loc, units=:metric)
         df = DataFrame(sid = Int64[], latitude = Float64[], longitude = Float64[], distance = Float64[])
         for node in iterate(rootnode)
             if nodename(node) == "observation"
-                for childnode in iterate(node) df[!, nodename(childnode)] = [] end
+                for childnode in eachelement(node) df[!, nodename(childnode)] = [] end  # TODO: Add types
                 break
             end
         end
@@ -54,7 +54,7 @@ function weather(;apikey, info, loc, units=:metric)
                 push!(df[!, :distance], parse(Float64, node["distance"]))
             end
             if nodename(node) == "observation"
-                for childnode in iterate(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
+                for childnode in eachelement(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
             end
         end
     elseif info == "weather forecast"
@@ -63,7 +63,7 @@ function weather(;apikey, info, loc, units=:metric)
         df = DataFrame(id = Int64[], datetime = String[], day = String[])
         for node in iterate(rootnode)
             if nodename(node) == "forecast"
-                for childnode in iterate(node) df[!, nodename(childnode)] = [] end
+                for childnode in eachelement(node) df[!, nodename(childnode)] = [] end  # TODO: Add types
                 break
             end
         end
@@ -73,7 +73,25 @@ function weather(;apikey, info, loc, units=:metric)
                 push!(df[!, :id], length(df[!, :id]) + 1)
                 push!(df[!, :datetime], node["utcTime"])
                 push!(df[!, :day], node["weekday"])
-                for childnode in iterate(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
+                for childnode in eachelement(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
+            end
+        end
+    elseif info == "astronomy forecast"
+        # TODO: Add function argument and station information as metadata
+        # Create a blank dataframe
+        df = DataFrame(id = Int64[], datetime = String[])
+        for node in iterate(rootnode)
+            if nodename(node) == "astronomy" && nodename(parentnode(node)) == "astronomy"
+                for childnode in eachelement(node) df[!, nodename(childnode)] = [] end  # TODO: Add types
+                break
+            end
+        end
+        # Fill the dataframe
+        for node in iterate(rootnode)
+            if nodename(node) == "astronomy" && nodename(parentnode(node)) == "astronomy"
+                push!(df[!, :id], length(df[!, :id]) + 1)
+                push!(df[!, :datetime], node["utcTime"])
+                for childnode in eachelement(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
             end
         end
     else df = DataFrame() 
