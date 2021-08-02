@@ -12,10 +12,6 @@ arch:
 cache:
   directories:
   - "~/.julia/artifacts"
-env:
-  global:
-  - secure: Tz8gWw1mfmcYO7NLGooEkN/NKSQKef/DAMk0P68Oq8IEBPvXJ4fzIzTke93AODWd0iZu9wNtBsB34FnOEmMPBgg3VEL+gj0KLjIfpkl2aw0NFgypM5KNx6020QITv4HJZoUWFX/KEQPhsmEMR2fstQTb6bFnStBXgdS+A7p9H3TWcEyM/jgCl7vz1z/sXQ/5G9k63m1Qp3o9uSWGkXsEui4u6bVR5NIkxDevMCFfNs7Bc4Tml8AnaXM7dAFGvlPygTqKhwiau9HQ4A/GgB8cswsNL+J1aKbxmWVtWMG53m59bQf3LmqwBoOrtF6XATHRQ3eLPnK0RuLFzfXY3h/d5C+ByTa7QYGju1xEPeX/QPu013B1WW07WByieE13LHxHmfx4KLuOtjALDqZ2h/aCj7xVl6/htFLWeSRhB06c8z91TpgYhFnWbNbr43LR99nCnQ6cYVqlbWFO5ZJm7LyaboEFVnk4vik128eSREEtOl1dPsHVyuVnV7fIq3UsYFjOUEqmQJf+3Yk4USQVkULqfMt9sv8de9bu/6qWudiJxB9FtQ4I1hckOdIyVpDUYitf8hfuVuJoeZVayMAfKq+V5PrXrBEtCBfFVp7q9t3Yps0VMfVDpPP7jSycIS6c7Ou0FTwHMaqcH8DiU+BhBgkLEar83htL+6/qDDv0mcE5pl8=
-
 jobs:
   fast_finish: true
   allow_failures:
@@ -27,9 +23,11 @@ after_success:
     Pkg.add("Coverage")
     using Coverage
     Codecov.submit(process_folder())'
-- |
+- |-
   julia -e '
     using Pkg
     Pkg.add("Coverage")
     using Coverage
     Coveralls.submit(process_folder())'
+dd:
+  secure: SetWRT/xEhqVQlCAJLix8tmNaRg4mcYvc3kvctiUs1+bHnVUu9+EI/e0KAy4gt12mgkF+A9h5fUy2alnPfQQg3PCYJmWMbuEjqczB1dKLTY3zPyZ3fbI+/rblGc1aFPsGJsxhrJRVSyz6UfgiV02XPMrJcsS6giKtRJTlomBTvXGiOJ7T7Kb2zERn45t3DNjfR5fp2nrtI7Uvv4jvUzjILUeL2HXst+KVaSO8JfFO23cxES5TvfvWHMpPJjB1NWt9iIuv3UZODsQPCIgKZRVU0VSaL43L4CEjx5s6vXcWi/kUcCEShvEVqz/OtDz3g2VWkVlm06Jx6C59VL/1fL3NPcw2tZ9EFKnUwwIi6kGDYmmFBn8XXCyWiKuKyM5VbV637CZIMiWzoityHXwuz/kEFioxT+ARFRSUxCOGJLD6K2aOcn1zSB/zbqH9Fj+2d9bo5Gq0rpCVAzm3s2G+Y9cx6I7ESXw82AFfhQpDcl8e+A0dX5Tde3hAaZF5suNmaGwNX0QJ4aCPB3Ag5t08xK6/Nwa+M8Bqseea+l4jc1/1y968j1J2PZDNNJVJ2qTvEKm+zLWJWj1/xxgsOEqI86FsvpjxeEkLR5F3efxmzA98YZu9urMEZYZuOE2exOGuvUchF/lZtBLkeN5kgj85M83zZ4uaMD/gAMswTEAfXiYkHU=
