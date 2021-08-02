@@ -12,10 +12,6 @@ arch:
 cache:
   directories:
   - "~/.julia/artifacts"
-env:
-  global:
-    - fk=fakekey
-    - secure: "EDLo6Tk7BSynJrDxVwRiMGg4j5MlqjtUjuRX42MJqVK45r+m9zso8Qc595z1rOd/7BrqmRmBzbgMTypj4CGIMEA++kdb70DDcfjiAKWZmaxFUE55DEr8rZKaEP0Rf7Bkp3iopHyVkxCFIEgXEnUJYepiTFsDOQadvXWFJA9H90P1TvaxRzpqpcOsgM1SEyIb2ENBPlMW/F3IH6hWhGvUrDKA9jOUabf/dxwguyPSU9HDSeCfatfxd8RvPgs2XnjUUyWxYHcUUeh6eBGXsUc5NWxVABZZ4Q7aChDCzQIY0//cL9vqZV9BaaiLJCkIxfyRO5iouSmOEuSJ7fzIKJx2PKGTThWpzvcb2zkqLS2KR5hFE3WR2rrAiMrfXt8lFhej5hOPmavP9wGvh8ItlxJod4ZykcotPGjQ5E9t2bu5YToR3LOWTdKd5BZ/AlNyr0hdqtrx1Q7qXdCoCT1xsa+2owRBjzBRZla/nAK+THFNIuTwuHQ4J2jsha1E8OK3DtyZ6HRuvT0Luepli1VyejbhDuEblZ/ylP2p7TFZRBm8pLSxKAGl+Kf0OtJ3Y9LF9Z7029NNgtaaSCw7RvRVeRzHypBbaMKQVsBhM86uOoSbMl77cYQQ8jciRt1UaM2EzPg6XB8jkFqVDTlZ5d7PEtEBk/uusot7dX35STMBkd2m/BU="
 jobs:
   fast_finish: true
   allow_failures:
@@ -33,3 +29,6 @@ after_success:
     Pkg.add("Coverage")
     using Coverage
     Coveralls.submit(process_folder())'
+env:
+  global:
+    secure: m6VyM2xTnBcz7HYRZXvdZC/kAi4PEn30Xee4aSxpXk/cxUT2g3MkNDpfy8MB9mpTkSei28iyX9ZugowkknSecyfx9v3hJALA1HcSg/o5e+qO9NnBk7LSBw29oOO/ocEX7vwgJ/k8yy8tU/SIp6xIQyQCJYskj1mlhQuAxBmiQQsbZg3dnlQkD8on2BoHXtZh6+3k+cabdjmaI3QxNXfmN/e737aiUqxTMdB1GUC8ppKXH2X/vjmkY3Tz1tilRM7dYUQLBA9r30CsNnh+tp0qk4NpSccAgXYrA9AsN2QlPuoDaZM1gyc781oWcKPz0Um/xHjRXk5whiZkJxKTFMiCRpIm4II6RM1TDwrKey9H6JPrNY6j1pJ1xRU4UHqHI0N2LG2vHcaoNqnMBRWM3Y0TyeK+H6nVgH1Itzvh3UofzfPugNW4Ly9X54yL+hHI+/SJE+ZcD3hM127nzGQJZt8dZdgrmomLswD+p+mTBvflKsPrsyBYpPVth+IG65MNJNfMCdo5EM68NS7QlkEH2sm/Rpd7h49GxqzCPBNv3Mv2mMxua4BYBfhDJPAEomWrWQ/evVTo/xf4YkGSRzld70lFXAdOdp0YidXMcRaXlyPZA/DCpq4/rib85flMUIV3JwDWwSutQjnEY4TSpQ7eDk7vFdeDBAHPxr/S6Ky+3s0kqSM=
