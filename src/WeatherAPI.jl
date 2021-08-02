@@ -38,7 +38,7 @@ function weather(;apikey, info, loc, units=:metric)
     if info == "weather observation"
         # TODO: Add funciton arguments and date of observation as metadata
         # Create a blank dataframe
-        df = DataFrame(sid = Int64[], latitude = Float64[], longitude = Float64[], distance = Float64[], elevation = Float64[])
+        df = DataFrame(sid = Int64[], latitude = Float64[], longitude = Float64[], distance = Float64[])
         for node in iterate(rootnode)
             if nodename(node) == "observation"
                 for childnode in iterate(node) df[!, nodename(childnode)] = [] end
@@ -52,7 +52,6 @@ function weather(;apikey, info, loc, units=:metric)
                 push!(df[!, :latitude], parse(Float64, node["latitude"]))
                 push!(df[!, :longitude], parse(Float64, node["longitude"]))
                 push!(df[!, :distance], parse(Float64, node["distance"]))
-                push!(df[!, :elevation], parse(Float64, node["elevation"]))
             end
             if nodename(node) == "observation"
                 for childnode in iterate(node) push!(df[!, nodename(childnode)], nodecontent(childnode)) end
