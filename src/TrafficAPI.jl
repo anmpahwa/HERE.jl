@@ -33,12 +33,12 @@ function flow(;apikey, bbox, s=1.0, m=1/60)
         df[!, "rts @$Tₒ"] = zeros(nrow(df))
         r = HTTP.request(:GET, url)
         f = parsexml(String(r.body))
-        rootNode = root(f)
+        rootnode = root(f)
         k = 1
-        for node in iterate(rootNode)
+        for node in iterate(rootnode)
             if nodename(node) == "FI"
-                child = lastelement(node)
-                v = parse(Float64, child["SU"])
+                childnode = lastelement(node)
+                v = parse(Float64, childnode["SU"])
                 df[k, "rts @$Tₒ"] = v
                 k += 1
             end

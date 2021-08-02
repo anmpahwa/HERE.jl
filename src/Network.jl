@@ -29,18 +29,18 @@ function network(;apikey, bbox)
     for node in iterate(rootNode)
         if nodename(node) == "FI"
             shape = ""
-            for child in eachelement(node)
+            for childnode in eachelement(node)
                 # Fetch name and length
-                if child == firstelement(node)
+                if childnode == firstelement(node)
                     push!(df[!, :lid], length(df[!, :lid]) + 1)
-                    push!(df[!, :name], child["DE"])
-                    push!(df[!, :length], parse(Float64, child["LE"]))
+                    push!(df[!, :name], childnode["DE"])
+                    push!(df[!, :length], parse(Float64, childnode["LE"]))
                 # Fetch free flow speed 
-                elseif child == lastelement(node)
-                    push!(df[!, :ffs], parse(Float64, child["FF"]))
+                elseif childnode == lastelement(node)
+                    push!(df[!, :ffs], parse(Float64, childnode["FF"]))
                 # Fetch link shape (Note: Link shape is of the same format as the bbox)
                 else
-                    shape *= replace(nodecontent(child), " " => ";")
+                    shape *= replace(nodecontent(childnode), " " => ";")
                 end
             end
             push!(df[!, :shape], shape)
