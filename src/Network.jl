@@ -7,8 +7,8 @@ using DataFrames
 Returns shape for every street of the network within the bounding box.
 
 # Arguments
-apikey:String   : API key to access HERE
-bbox:String     : Bounding box defined as `"lat₁,long₁;lat₂,long₂"`
+apikey::String   : API key to access HERE
+bbox::String     : Bounding box defined as `"lat₁,long₁;lat₂,long₂"`
 
 For more information visit: https://developer.here.com/documentation/traffic/dev_guide/topics/guide.html
 
