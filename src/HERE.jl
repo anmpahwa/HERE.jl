@@ -1,7 +1,10 @@
 module HERE
+include("XMLiterate.jl")
 
-# Write your package code here.
 include("TrafficAPI.jl")
 export flow
+
+include("WeatherAPI.jl")
+export weather
 
 end
