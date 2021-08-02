@@ -14,7 +14,8 @@ cache:
   - "~/.julia/artifacts"
 env:
   global:
-    - key=fakekey
+    - fk=fakekey
+    - secure: "cO2hq8IYPTjmFmaP23aryGE7p8NZFoAZhOtEqO+0GFt/R8hZh1v0f/AOL8Whe+kDxs+CXw5Y9hUPzxgsjQtNyRLqWHKzBRguszUpGMQZc+1gU06yaH1BlvAx5+q0DrxNrODTgMlJDfbMq2+GBnAsdsAdNgPy5DZKbOinpMEv6esTSP0oGEvFDpF31/8lLoH9JOBzKoG/o+kARQK9tTD9xFDJPEmnu1H/l8RC5/kqgmdNz0U21VoDrKXAgohPs96RzmCcukx4faiPhhoDRdPu1u/35+G9YZEb06Ds5Wb6OQqTomnayPuXmwK9sFom+qMA86QXQbN7lAWKY8lo6qzg4CCwF7wHI1i7H68cBdYYWdzD616kTGhLEDawRCpTxNIz/x9t2niIYIfTZgXRGQcIJVDasy15TJyNUB9pMWhAUiSOJFsHwiyAIanbDsXxZF7zSnZ+YQ3jC01zsrQLU6uUYuglais26KnIQgVY7KnfzidxFiO99HoyrhCAdcIOXf4TS6cAXzIJwx30a2oT0fZAPdU2EHHERb9dH5EVwqPsXJn+2p5MItNa0YQwL5UrJbFifrmrZywEPOXVPcdVhO0hQJaftsCFVBCSjH/ivNy4+U5ZzZB6UNqSIJqLJ3BWca+Ac4AmNny2HBX1MOc77LZd8l0hbga8MwA/kaOmeHcpxTg="
 jobs:
   fast_finish: true
   allow_failures:
