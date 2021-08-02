@@ -2,6 +2,7 @@ using HERE
 using Test
 #using Revise
 
+#=
 function loadkey()
     if "key" in keys(ENV)
         return ENV[key]
@@ -11,8 +12,8 @@ function loadkey()
         end
     end
 end
-
-testkey = loadkey()
+=#
+testkey = ENV[key]
 @testset "dummy test" begin
     @test typeof(testkey) == String
 end
