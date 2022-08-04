@@ -6,5 +6,15 @@
 [![Coverage](https://coveralls.io/repos/github/anmol1104/HERE.jl/badge.svg?branch=master)](https://coveralls.io/github/anmol1104/HERE.jl?branch=master)
 
 HERE Technologies is a crowd-based navigation, mapping, and location content platform.
-- Traffic API: Get real-time vehicle speed in every s seconds for m minutes in a bounding box using HERE Traffic API. 
+- Traffic API: 
 - Weather API: Weather information for any given place
+
+## Traffic API
+
+    flow(;apikey, bbox, s=1.0, m=1/60)
+Returns real-time vehicle speed in every s seconds for m minutes in a bounding box using HERE Traffic API. 
+## Arguments
+apikey::String   : API key to access HERE
+bbox::String     : Bounding box defined as `"lat₁,long₁;lat₂,long₂"`
+s::Float64=1.0   : gap between every API call
+m::Float64=1/60  : time-period of analysis
