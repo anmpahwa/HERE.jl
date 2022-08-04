@@ -11,7 +11,7 @@ HERE Technologies is a crowd-based navigation, mapping, and location content pla
 
 ## Traffic API
 
-    flow(;apikey, bbox, s=1.0, m=1/60)
+    `flow(;apikey, bbox, s=1.0, m=1/60)`
 Returns real-time vehicle speed in every s seconds for m minutes in a bounding box using HERE Traffic API. 
 ## Arguments
 apikey::String   : API key to access HERE
